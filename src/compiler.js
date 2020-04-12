@@ -55,13 +55,46 @@ export default class Compiler{
     }
     /**
      * 模板编译
+     * 递归函数，直到没有子节点时候停止。
      * @param {*} node 
      */
     compiler(node) {
         if (node.childNodes && node.childNodes){
             node.childNodes.forEach(child => {
-                console.log(child);
+                // console.log(child);
+                // 判断节点类型，如果是元素，节点还有可能包括新的节点，需要找出来，如果是文本就不需要了
+                if (child.nodeType ===1){
+                    // 元素节点
+                    this.compilerElement(child);
+                }else if (child.nodeType ===3){
+                    // 文本节点
+                    this.compilerText(child);
+                }
             })
+        }
+
+    }
+    /**
+     * 编译元素节点
+     * @param {*} node 
+     */
+    compilerElement(node){
+        // TODO 元素编译
+        // 指令
+        this.compiler(node);
+
+    }
+    /**
+     * 编译文本节点
+     * @param {*} node 
+     */
+    compilerText(node){
+        let text = node.textContent.trim();
+        if (text){
+            // 把text字符串转化为表达式
+
+            // 添加订阅者，计算表达式值
+            // 表达式依赖数据变化时：1.重新计算表达式值 2. node.textContent给最新的值
         }
 
     }
