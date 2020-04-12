@@ -92,10 +92,39 @@ export default class Compiler{
         let text = node.textContent.trim();
         if (text){
             // 把text字符串转化为表达式
+            let exp = this.parseTextExp(text);
+            console.log(exp);
 
             // 添加订阅者，计算表达式值
             // 表达式依赖数据变化时：1.重新计算表达式值 2. node.textContent给最新的值
+            // 就完成了Model到View的响应式
         }
+
+    }
+
+    /**
+     * 文本到表达式的转换
+     * @param {*} text 
+     */
+    parseTextExp(text){
+        // 匹配插值表达式正则
+        let regText = /\{\{(.+?)\}\}/g;
+
+        // 分割插值表达式前后内容
+        let pices = text.split(regText);
+        // 匹配插值表达式
+        let matches = text.match(regText);
+        // 表达式数组
+        let tokens = [];
+        pices.forEach(item => {
+            if (matches && matches.indexOf("{{"+item+"}}") > -1) {
+                tokens.push("("+item+")");
+            }else{
+                tokens.push("`"+item+"`");
+            }
+        });
+        return tokens.join("+");
+        
 
     }
 }
