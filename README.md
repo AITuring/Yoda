@@ -100,7 +100,10 @@ export default {
 var obj = {};
 // 定义一个空数据
 var value = "";
-
+/**
+ * 一般使用Object.defineProperty进行数据劫持，
+ * 给obj添加一个名为msg的属性
+ * 该函数接受三个参数 /
 ```
 
 #### 模板解析
