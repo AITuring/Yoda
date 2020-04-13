@@ -1,5 +1,5 @@
 <div  align="center">    
-    <img src="http://lishengyu.xyz/yoda.png" width ="50%"  align="center"/>
+    <img src="http://lishengyu.xyz/yoda.png" width ="40%"  align="center"/>
 </div>
 
 <center><h1><font color="rgb(167, 200, 34)">Yoda</font></h1></center>
