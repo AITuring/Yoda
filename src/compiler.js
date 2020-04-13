@@ -80,6 +80,7 @@ export default class Compiler{
      * @param {*} node 
      */
     compilerElement(node){
+        let that = this;
         let attrs = [...node.attributes];
         attrs.forEach(attr => {
             let {name:attrName, value:attrValue} = attr;
@@ -95,12 +96,37 @@ export default class Compiler{
                         new Watcher(attrValue,this.context, newValue =>{
                             node.value = newValue;
                         });
+                        node.addEventListener("input",e =>{
+                            that.context[attrValue] = e.target.value;
+
+                        })
                         break;
                 }
             }
+            
+            if (attrName.indexOf("@") === 0){
+                this.compilerMethods(this.context,node,attrName,attrValue);
+
+            }
+
         })
         this.compiler(node);
 
+    }
+
+
+    /**
+     * 编译函数
+     * @param {*} scope 
+     * @param {*} node 
+     * @param {*} attrName 
+     * @param {*} attrValue 
+     */
+    compilerMethods(scope,node,attrName,attrValue){
+        // 获取类型
+        let type = attrName.slice(1);
+        let fn = scope[attrValue];
+        node.addEventListener(type,fn.bind(scope));
     }
     /**
      * 编译文本节点

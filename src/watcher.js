@@ -1,3 +1,4 @@
+// 观察者，将表达式和元素关联
 import Dep from "./dep";
 
 var $uid =0;

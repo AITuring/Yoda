@@ -11,7 +11,8 @@ class Yoda{
         this.$data = options.data || {};
 
         //数据和函数的代理
-        this._proxyData(this.$data)
+        this._proxyData(this.$data);
+        this._proxyMethods(options.methods);
 
         // 数据劫持
         new Observer(this.$data);
@@ -42,7 +43,7 @@ class Yoda{
      */
     _proxyMethods(methods){
         if (methods && typeof methods === 'object'){
-            Object.keys(method).forEach(key =>{
+            Object.keys(methods).forEach(key =>{
                 this[key]=methods[key];
             });
         }

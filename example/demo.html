@@ -11,6 +11,7 @@
         <p>"111"{{msg+'----'}}222</p>
         <p v-text="msg"></p>
         <input type="text" v-model="msg">
+        <button @click="handleClick">click</button>
     </div>
 
     <script>
@@ -19,6 +20,11 @@
             data: {
                 msg: 'Hello',
                 info: 'test'
+            },
+            methods: {
+                handleClick: function (){
+                    console.log('click',this.msg);
+                }
             }
         })
     </script>

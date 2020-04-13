@@ -1,3 +1,4 @@
+// 依赖项
 export default class Dep{
     constructor(){
         // 存放所有Watcher
