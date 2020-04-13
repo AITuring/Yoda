@@ -18,7 +18,7 @@ yoda是一个为了学习Vue原理，按照Vue语法制作的简易的MVVM框架
 
 
 
-## 🌏MVVM原理
+## 🌏MVVM
 
 ### 什么是MVVM
 
@@ -84,5 +84,12 @@ export default {
 </script>
 ```
 可以看到，在Vue中，负责视图的 HTML 代码和负责业务逻辑的 JS 代码有效地分离开来。之所以能做到这一点，这就要依靠MVVM中的VM(ViewModel)实现。ViewModel层通过双向数据绑定将View层和Model层连接了起来，使得View层和Model层的同步工作完全是自动的。
+
+## 🐱‍💻编写类Vue的框架Yoda
+### 框架的核心要素/模块
+
+#### 响应式
+#### 模板解析
+#### 虚拟DOM
 
 
