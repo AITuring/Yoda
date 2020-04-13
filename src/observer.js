@@ -1,4 +1,5 @@
 import { get } from "https";
+import Dep from "./dep";
 
 // 数据劫持
 export default class Observer {
@@ -7,7 +8,6 @@ export default class Observer {
         this.data = data;
         // 遍历对象完成所有数据劫持
         this.walk(this.data);
-
 
     }
     
@@ -35,13 +35,15 @@ export default class Observer {
      * @param {*} value 
      */
     defineReactive(data, key, value){
+        let dep = new Dep();
         Object.defineProperty(data, key, {
             // 可遍历
             enumerable: true,
             // 不可再配置
             configurable: false,
             get: () => {
-                console.log('get')
+                // console.log('get')
+                Dep.target && dep.addSub(Dep.target);
                 return value;
             },
     
@@ -49,6 +51,7 @@ export default class Observer {
                 console.log('set')
                 value = newValue;
                 // TODO 触发view页面的变化
+                dep.notify();
             }
     
         });

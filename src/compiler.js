@@ -1,3 +1,4 @@
+import Watcher from "./watcher";
 // 模板编译
 export default class Compiler{
     constructor(context){
@@ -79,8 +80,25 @@ export default class Compiler{
      * @param {*} node 
      */
     compilerElement(node){
-        // TODO 元素编译
-        // 指令
+        let attrs = [...node.attributes];
+        attrs.forEach(attr => {
+            let {name:attrName, value:attrValue} = attr;
+            if (attrName.indexOf("v-") === 0){
+                let dirName = attrName.slice(2);
+                switch(dirName){
+                    case "text":
+                        new Watcher(attrValue, this.context, newValue =>{
+                            node.textContent = newValue;
+                        });
+                        break;
+                    case "model":
+                        new Watcher(attrValue,this.context, newValue =>{
+                            node.value = newValue;
+                        });
+                        break;
+                }
+            }
+        })
         this.compiler(node);
 
     }
@@ -93,11 +111,14 @@ export default class Compiler{
         if (text){
             // 把text字符串转化为表达式
             let exp = this.parseTextExp(text);
-            console.log(exp);
+            // console.log(exp);
 
             // 添加订阅者，计算表达式值
             // 表达式依赖数据变化时：1.重新计算表达式值 2. node.textContent给最新的值
             // 就完成了Model到View的响应式
+            new Watcher(exp,this.context,newValue => {
+                node.textContent = newValue;
+            });
         }
 
     }
