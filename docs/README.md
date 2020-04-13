@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /egg.png
+heroImage: /jedi.jpg
 heroText: 裂泉的前端记录
 tagline: 一点一滴都是进步
 actionText: 马上进入 →
