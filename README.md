@@ -1,14 +1,15 @@
-
-![](http://lishengyu.xyz/yoda.png)
+<div  align="center">    
+    <img src="http://lishengyu.xyz/yoda.png" width ="50%"  align="center"/>
+</div>
 
 <center><h1><font color="rgb(167, 200, 34)">Yoda</font></h1></center>
 
 
-yoda是一个简单的模仿Vue的MVVM框架。
+yoda是一个为了学习Vue原理，按照Vue语法制作的简易的MVVM框架。
 
 ![](https://fontmeme.com/permalink/200413/e908ed3e184539c90070d0ff2abb12d8.png)
 
-## May the force be with you!
+
 
 ## MVVM原理
 
