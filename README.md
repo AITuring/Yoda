@@ -101,7 +101,8 @@ var obj = {};
 // 定义一个空数据
 var value = "";
 /**
- * 一般使用Object.defineProperty进行数据劫持，
+ * 一般使用Object.defineProperty进行数据劫持
+ * Object.defineProperty()方法直接在对象上定义一个新属性，或修改对象的现有属性，并返回此对象。
  * 给obj添加一个名为msg的属性
  * 该函数接受三个参数 
  * 1.一个对象

@@ -1,15 +1,31 @@
-language: node_js
-node_js:
-  - lts/*
-install:
-  - yarn install # npm ci
-script:
-  - yarn docs:build # npm run docs:build
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: docs/.vuepress/dist
-  github_token: $d17bb14ef46a1ad51912037ad225496b75a93192 
-  keep_history: true
-  on:
-    branch: master
+{
+  "language": "node_js",
+  "os": [
+    "linux"
+  ],
+  "dist": "xenial",
+  "node_js": [
+    "lts/*"
+  ],
+  "install": [
+    "yarn install"
+  ],
+  "script": [
+    "yarn docs:build"
+  ],
+  "deploy": [
+    {
+      "provider": "pages",
+      "strategy": "git",
+      "skip_cleanup": true,
+      "local_dir": "docs/.vuepress/dist",
+      "keep_history": true,
+      "on": {
+        "branch": [
+          "master"
+        ]
+      },
+      "token": "$d17bb14ef46a1ad51912037ad225496b75a93192"
+    }
+  ]
+}
