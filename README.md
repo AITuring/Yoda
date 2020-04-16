@@ -117,9 +117,13 @@ Object.defineProperty(obj,"msg",{
 		value = newValue;
 	},
 	get:function(){
-		console.log("get")
+		console.log("get");
+		return value;
 	}
-})
+});
+
+// 监听input事件，但发生变化时，重新设置obj的msg属性，触发set函数，则view自动更新
+document.querySelector("#input").addEventListener("input")
 ```
 
 #### 模板解析

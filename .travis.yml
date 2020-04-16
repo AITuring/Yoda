@@ -17,7 +17,7 @@
     {
       "provider": "pages",
       "strategy": "git",
-      "skip_cleanup": true,
+      "cleanup": true,
       "local_dir": "docs/.vuepress/dist",
       "keep_history": true,
       "on": {
