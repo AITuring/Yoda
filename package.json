@@ -7,5 +7,7 @@
   "devDependencies": {
     "vuepress": "^1.4.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "travis": "^0.1.1"
+  }
 }
