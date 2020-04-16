@@ -103,7 +103,22 @@ var value = "";
 /**
  * 一般使用Object.defineProperty进行数据劫持，
  * 给obj添加一个名为msg的属性
- * 该函数接受三个参数 /
+ * 该函数接受三个参数 
+ * 1.一个对象
+ * 2. 该对象设置的属性名
+ * 3. 一个配置对象，可以配置该属性的set/get方法
+ * */
+Object.defineProperty(obj,"msg",{
+	set:function(newValue){
+		console.log("set");
+		// 数据发生变动时，需要重新渲染虚拟DOM
+		document.querySelector("#app").innerHTML = newValue;
+		value = newValue;
+	},
+	get:function(){
+		console.log("get")
+	}
+})
 ```
 
 #### 模板解析
