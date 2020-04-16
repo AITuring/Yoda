@@ -25,7 +25,7 @@
           "master"
         ]
       },
-      "token": "$d17bb14ef46a1ad51912037ad225496b75a93192"
+      "token": "$GITHUB_TOKEN"
     }
   ]
 }
