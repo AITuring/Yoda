@@ -8,6 +8,7 @@
     "vuepress": "^1.4.0"
   },
   "dependencies": {
-    "travis": "^0.1.1"
+    "travis": "^0.1.1",
+    "vuepress-theme-seeker": "^1.0.9"
   }
 }

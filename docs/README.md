@@ -1,9 +1,11 @@
 ---
 home: true
-heroImage: docs\static\yoda.png
+heroImage: /yoda.png
 heroText: Yoda
-tagline: 一个简单的MVVM框架
-features:
+tagline: yoda是一个为了学习Vue原理，按照Vue语法制作的简易的MVVM框架。
 
-footer: MIT Licensed | Copyright © 2012-present AITuring
+
+
+
+
 ---
