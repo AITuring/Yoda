@@ -1,17 +1,16 @@
 module.exports = {
-    title: '裂泉首页', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
-    description: '裂泉的前端记录', // meta 中的描述文字，用于SEO
+    title: 'Yoda', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
+    description: '一个MVVM框架', // meta 中的描述文字，用于SEO
     // 注入到当前页面的 HTML <head> 中的标签
     base: "/yoda/",
     head: [
-        ['link', { rel: 'icon', href: '/jedi.jpg' }],  //浏览器的标签栏的网页图标
+        ['link', { rel: 'icon', href: '/static/jedi.png' }],  //浏览器的标签栏的网页图标
     ],
     markdown: {
         lineNumbers: true
     },
     serviceWorker: true,
     themeConfig: {    
-        logo: '/jedi.jpg',
         lastUpdated: 'lastUpdate', // string | boolean
         nav: [
             { text: '首页', link: '/' },
